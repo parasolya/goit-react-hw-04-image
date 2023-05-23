@@ -19,16 +19,14 @@ export default function ImageGallery({
   useEffect(() => {
     if (photoName !== '') {
       loadPhotos();
-    }
-  }, [photoName]);
-
-  useEffect(() => {
+    };
     if (page > 1) {
       loadMorePhotos();
     }
-  }, [page]);
 
-  const loadPhotos = () => {
+  }, [photoName, page]);
+
+   const loadPhotos = () => {
     setStatus('pending');
 
     getPhotos(photoName, page)
